@@ -1,0 +1,16 @@
+.nkd-circle-fill {
+  display: none;
+}
+
+.nkd-img-circle {
+  animation: alternate;
+}
+
+.nkd-contact-plugin .nkd-button-contact .nkd-phone {
+  width: 90px;
+  height: 75px;
+}
+
+.nkd-contact-plugin .nkd-button-contact {
+  right: -4px;
+}

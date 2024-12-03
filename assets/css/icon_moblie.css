@@ -1,0 +1,148 @@
+.icon_group_parent {
+  display: none;
+}
+
+.icon_close_service {
+  display: none;
+}
+
+.active-close-icon-mobile {
+  transition: all 0.3s linear;
+}
+
+.active-close-icon-mobile .icon_close_service {
+  display: block;
+  width: 30px;
+}
+
+.active-close-icon-mobile .icon_call_service {
+  display: none;
+}
+.active-close-icon-mobile.icon_group_parent button {
+  margin-right: 15px;
+}
+@media only screen and (max-width: 500px) {
+  .nkd-circle-fill {
+    display: none;
+  }
+
+  .nkd-name-of-contact {
+    display: block;
+  }
+
+
+  .nkd-contact-plugin .nkd-button-contact .nkd-phone {
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .nkd-contact-plugin .nkd-button-contact.active-show-icon-mobile .nkd-phone {
+    max-width: fit-content !important;
+        width: auto !important;
+    height: 40px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+  }
+  div#zalo .nkd-contact-plugin .nkd-button-contact .nkd-phone {
+    width: 30px !important;
+  }
+
+
+  #zalo span.nkd-name-of-contact {
+    left: -20px;
+  }
+
+  .active-show-icon-mobile .nkd-img-circle a::before {
+    content: "";
+    width: 100px;
+    height: 31px;
+    background-color: transparent;
+    position: absolute;
+    left: -106px;
+  }
+
+
+  .nkd-button-contact.active-show-icon-mobile .nkd-img-circle {
+    width: 32px;
+    height: 32px;
+    position: unset !important;
+    margin-right: 5px;
+  }
+
+  .mobile_custom_icon_plg {
+    overflow: hidden;
+    right: 0 !important;
+    left: auto;
+  }
+  .mobile_custom_icon_plg > .relative {
+    right: -100px;
+    transition: all 0.3s linear;
+  }
+  .mobile_custom_icon_plg.active > .relative {
+    right: 0;
+  }
+  .icon_group_parent {
+    position: relative;
+    display: block;
+    height: 50px;
+	  bottom: 2px;
+    text-align: right;
+  }
+
+  .nkd-button-contact.active-show-icon-mobile span.nkd-name-of-contact {
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .icon_group_parent button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .icon_group_parent button img {
+    max-width: 42px;
+    max-height: 42px;
+    object-fit: contain;
+    background-color: #001d67;
+    padding: 10px;
+    border-radius: 100%;
+  }
+
+  .mobile_custom_icon_plg .nkd-button-contact {
+    bottom: 0;
+    transition: all .3s linear;
+    scale: 0;
+    opacity: 0;
+    right: 0
+  }
+
+  .nkd-button-contact.active-show-icon-mobile {
+    opacity: 1;
+    scale: 1;
+    bottom: 10px;
+    transition: all .3s linear;
+    right: 0;
+    left: auto;
+    display: block !important;
+  }
+
+  .nkd-contact-plugin .nkd-button-contact {
+    background-color: #001d67;
+    border-radius: 45px;
+    height: 40px;
+    max-width: fit-content;
+    margin-right: 15px;
+    margin-left: auto;
+  }
+
+  .nkd-contact-plugin .nkd-button-contact .nkd-phone {
+    margin-top: 15px;
+    padding-left: 10px;
+
+  }
+
+}

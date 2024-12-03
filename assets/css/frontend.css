@@ -702,4 +702,7 @@ div#popup-form-contact #loco-bottom .content-popup-img {
     .modal-content {
         width: 80%;
     }
+    .info-box{
+        display: none;
+      }
 }

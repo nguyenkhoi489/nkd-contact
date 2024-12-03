@@ -185,8 +185,8 @@ function RenderViewIcon($select = '')
             $html .= "</div></div>";
             break;
         case 'config_fanpage':
-            $icon .= 'image/messenger.png';
-            // $icon .= 'image/Facebook.png';
+            // $icon .= 'image/messenger.png';
+            $icon .= 'image/Facebook.png';
             $html .= "<div id=\"fanpage\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
                 <span class=\"nkd-name-of-contact\">Liên hệ: Messenger</span>

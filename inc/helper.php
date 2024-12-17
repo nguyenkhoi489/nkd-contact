@@ -72,7 +72,7 @@ function RenderViewIcon($select = '')
                         </a>
                     </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_zalo_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_zalo_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_zalo_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -80,7 +80,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/phone.png';
             $html .= "<div id=\"hotline\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
-                <span class=\"nkd-name-of-contact\">Liên hệ: " . get_option('config_hotline') . "</span>
+                <span class=\"nkd-name-of-contact\">" . get_option('config_hotline_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"tel:" . get_option('config_hotline') . "\">				
@@ -88,7 +88,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_hotline_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_hotline_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_hotline_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -96,7 +96,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/phone.png';
             $html .= "<div id=\"hotline_2\" class=\"nkd-button-contact\">
                 <div class=\"nkd-phone\">
-                    <span class=\"nkd-name-of-contact\">Liên hệ: " . get_option('config_hotline_2') . "</span>
+                    <span class=\"nkd-name-of-contact\">" . get_option('config_hotline_2_tooltip') . "</span>
                     <div class=\"nkd-circle-fill\"></div>
                     <div class=\"nkd-img-circle\">
                         <a target=\"_blank\" href=\"tel:" . get_option('config_hotline_2') . "\">				
@@ -104,7 +104,7 @@ function RenderViewIcon($select = '')
                         </a>
                     </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_hotline_2_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_hotline_2_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_hotline_2_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -112,7 +112,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/phone.png';
             $html .= "<div id=\"hotline_3\" class=\"nkd-button-contact\">
                     <div class=\"nkd-phone\">
-                        <span class=\"nkd-name-of-contact\">Liên hệ: " . get_option('config_hotline_3') . "</span>
+                        <span class=\"nkd-name-of-contact\">" . get_option('config_hotline_3_tooltip') . "</span>
                         <div class=\"nkd-circle-fill\"></div>
                         <div class=\"nkd-img-circle\">
                             <a target=\"_blank\" href=\"tel:" . get_option('config_hotline_3') . "\">				
@@ -120,7 +120,7 @@ function RenderViewIcon($select = '')
                             </a>
                         </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_hotline_3_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_hotline_3_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_hotline_3_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -128,14 +128,15 @@ function RenderViewIcon($select = '')
             $icon .= 'image/telegram.png';
             $html .= "<div id=\"telegram\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+                <span class=\"nkd-name-of-contact\">" . get_option('config_telegram_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_telegram') . "\">				
-                        <img alt=\"instagram\" src=\"$icon\" />
+                        <img alt=\"telegram\" src=\"$icon\" />
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_telegram_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_telegram_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_telegram_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -143,6 +144,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/instagram.png';
             $html .= "<div id=\"instagram\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+                <span class=\"nkd-name-of-contact\">" . get_option('config_instagram_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_instagram') . "\">				
@@ -150,7 +152,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_instagram_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_instagram_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_instagram_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -158,6 +160,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/youtube.png';
             $html .= "<div id=\"youtube\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+            <span class=\"nkd-name-of-contact\">" . get_option('config_youtube_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_youtube') . "\">				
@@ -165,7 +168,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_youtube_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_youtube_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_youtube_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -173,6 +176,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/tiktok.png';
             $html .= "<div id=\"tiktok\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+            <span class=\"nkd-name-of-contact\">" . get_option('config_tiktok_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_tiktok') . "\">				
@@ -180,16 +184,16 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_tiktok_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_tiktok_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_tiktok_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
         case 'config_fanpage':
-            $icon .= 'image/messenger.png';
-            // $icon .= 'image/Facebook.png';
+            // $icon .= 'image/messenger.png';
+            $icon .= 'image/Facebook.png';
             $html .= "<div id=\"fanpage\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
-                <span class=\"nkd-name-of-contact\">Liên hệ: Messenger</span>
+            <span class=\"nkd-name-of-contact\">" . get_option('config_fanpage_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_fanpage') . "\">				
@@ -197,7 +201,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_fanpage_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_fanpage_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_fanpage_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -205,6 +209,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/whatsapp.png';
             $html .= "<div id=\"whatsapp\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+            <span class=\"nkd-name-of-contact\">" . get_option('config_whatsapp_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"https://wa.me/" . get_option('config_whatsapp') . "\">				
@@ -212,7 +217,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_whatsapp_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_whatsapp_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_whatsapp_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -220,6 +225,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/viber.png';
             $html .= "<div id=\"viber\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+            <span class=\"nkd-name-of-contact\">" . get_option('config_viber_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"viber://add?number=" . preg_replace('/\D/', '', get_option('config_viber')) . "\">				
@@ -227,7 +233,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_viber_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_viber_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_viber_tooltip') . "</span>";
             }
             $html .= "</div></div>";
             break;
@@ -235,6 +241,7 @@ function RenderViewIcon($select = '')
             $icon .= 'image/showroom3.png';
             $html .= "<div id=\"map\" class=\"nkd-button-contact\">
             <div class=\"nkd-phone\">
+            <span class=\"nkd-name-of-contact\">" . get_option('config_map_url_tooltip') . "</span>
                 <div class=\"nkd-circle-fill\"></div>
                 <div class=\"nkd-img-circle\">
                     <a target=\"_blank\" href=\"" . get_option('config_map_url') . "\">				
@@ -242,7 +249,7 @@ function RenderViewIcon($select = '')
                     </a>
                 </div>";
             if (get_option('config_setting_enable_tooltip') === 'on' && get_option('config_map_url_tooltip')) {
-                $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_map_url_tooltip') . "</span>";
+                $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_map_url_tooltip') . "</span>";
             }
             $html .= "</div></div>";
 
@@ -255,6 +262,7 @@ function RenderViewIcon($select = '')
             if (get_option('config_form') && get_option('config_form_title')) {
                 $html .= "<div id=\"form\" class=\"nkd-button-contact\">
                 <div class=\"nkd-phone\">
+                <span class=\"nkd-name-of-contact\">" . get_option('config_map_url_tooltip') . "</span>
                     <div class=\"nkd-circle-fill\"></div>
                     <div class=\"nkd-img-circle\">
                         <a href=\"javascript:void(0)\">				
@@ -262,7 +270,7 @@ function RenderViewIcon($select = '')
                         </a>
                     </div>";
                 if (get_option('config_setting_enable_tooltip') === 'on') {
-                    $html .= "<span class=\"info-box ".(get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '')."\">" . get_option('config_form_title') . "</span>";
+                    $html .= "<span class=\"info-box " . (get_option('config_setting_enable_show_default_tooltip') === 'on' ? 'active' : '') . "\">" . get_option('config_form_title') . "</span>";
                 }
                 $html .= "</div></div>";
             }

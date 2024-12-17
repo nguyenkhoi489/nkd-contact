@@ -14,7 +14,9 @@
   display: block;
   width: 30px;
 }
-
+.active-show-icon-mobile .info-box{
+  display: none;
+}
 .active-close-icon-mobile .icon_call_service {
   display: none;
 }

@@ -146,7 +146,9 @@
     background-color: rgb(79 103 254);
     border: 0
 }
-
+#instagram.nkd-button-contact .info-box {
+    background: linear-gradient(160deg, rgba(17, 143, 253, 1) 20%, rgba(188, 60, 218, 1) 50%, rgba(253, 223, 5, 1) 80%);
+}
 #instagram .nkd-img-circle {
     background: transparent
 }
@@ -702,4 +704,7 @@ div#popup-form-contact #loco-bottom .content-popup-img {
     .modal-content {
         width: 80%;
     }
+    .info-box{
+        display: none;
+      }
 }

@@ -159,6 +159,14 @@
                             </tr>
                             <tr>
                                 <th scope="row">
+                                    Enable/Disable Free to Contact
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="config_setting_free_to_contact_enable" <?= get_option('config_setting_free_to_contact_enable') == "on" ? "checked" : "" ?> id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
                                     Enable/Disable Post/Product Count Views
                                 </th>
                                 <td>

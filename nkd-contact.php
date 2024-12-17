@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Contact Button
+ * Plugin Name: NKD Extra Feature
  * Plugin URI: /plugin/nkd-contact
  * Update URI: 
  * Description:  Button contact call, zalo, whatsapp, messenger, popup form ...
@@ -93,6 +93,7 @@ if (!function_exists('nkd_register_setting')) {
         register_setting('nkd_settings_options_group', 'config_setting_smtp_enable');
         register_setting('nkd_settings_options_group', 'config_setting_transition_enable');
         register_setting('nkd_settings_options_group', 'config_setting_group_icon_mobile_enable');
+        register_setting('nkd_settings_options_group', 'config_setting_free_to_contact_enable');
 
 
         // SMTP
@@ -115,7 +116,7 @@ add_action('admin_init', 'nkd_register_setting');
 function nkd_create_menu()
 {
     add_menu_page(
-        'Button contact',
+        'NKD Extra Feature',
         'Button contact',
         'administrator',
         'nkd-contact',
@@ -212,6 +213,42 @@ function loaded_action()
                 $phpmailer->FromName   = get_option('config_fromName');
             }
         });
+    }
+    if (!function_exists('pre')) {
+        function pre($data)
+        {
+            echo '<pre>';
+            var_dump($data);
+            echo '</pre>';
+            die;
+        }
+    }
+    if (get_option('config_setting_free_to_contact_enable') == 'on' && class_exists('WooCommerce')) {
+        function devvn_wc_custom_get_price_html($price, $product)
+        {
+
+            if (! $product->get_price()) {
+                if ($product->is_on_sale() && $product->get_regular_price()) {
+                    $regular_price = wc_get_price_to_display($product, array('qty' => 1, 'price' => $product->get_regular_price()));
+
+                    $price = wc_format_price_range($regular_price, __('Free!', 'woocommerce'));
+                } else {
+                    $price = '<span class="amount">' . __('Liên hệ', 'woocommerce') . '</span>';
+                }
+            }
+            return $price;
+        }
+        add_filter('woocommerce_get_price_html', 'devvn_wc_custom_get_price_html', 10, 2);
+
+        // Hết hàng thành liên hệ
+        function devvn_oft_custom_get_price_html($price, $product)
+        {
+            if (!is_admin() && !$product->is_in_stock()) {
+                $price = '<span class="amount">' . __('Liên hệ', 'woocommerce') . '</span>';
+            }
+            return $price;
+        }
+        add_filter('woocommerce_get_price_html', 'devvn_oft_custom_get_price_html', 99, 2);
     }
 }
 add_action('plugins_loaded', 'loaded_action');

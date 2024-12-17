@@ -178,6 +178,9 @@ function loaded_action()
 
         add_filter('manage_posts_columns', 'posts_column_views');
         add_action('manage_posts_custom_column', 'posts_custom_column_views', 5, 2);
+
+        add_filter('manage_products_columns', 'posts_column_views');
+        add_action('manage_products_custom_column', 'posts_custom_column_views', 5, 2);
         function posts_column_views($defaults)
         {
             $defaults['views_lastest'] = __('Views', '');
@@ -196,17 +199,18 @@ function loaded_action()
     if (get_option('config_setting_smtp_enable') == 'on') {
         add_action('phpmailer_init', function ($phpmailer) {
 
-            if (!is_object($phpmailer))
+            if (!is_object($phpmailer)) {
                 $phpmailer = (object) $phpmailer;
-            $phpmailer->Mailer     = get_option('config_mailer');
-            $phpmailer->Host       = get_option('config_host');
-            $phpmailer->Port       = get_option('config_port');
-            $phpmailer->SMTPAuth   = get_option('config_SMTPAuth');
-            $phpmailer->Username   = get_option('config_userName'); //username 
-            $phpmailer->Password   = get_option('config_passWord'); //pass
-            $phpmailer->SMTPSecure = get_option('config_SMTPSecure');
-            $phpmailer->From       = get_option('config_from');
-            $phpmailer->FromName   = get_option('config_fromName');
+                $phpmailer->Mailer     = get_option('config_mailer');
+                $phpmailer->Host       = get_option('config_host');
+                $phpmailer->Port       = get_option('config_port');
+                $phpmailer->SMTPAuth   = get_option('config_SMTPAuth');
+                $phpmailer->Username   = get_option('config_userName'); //username 
+                $phpmailer->Password   = get_option('config_passWord'); //pass
+                $phpmailer->SMTPSecure = get_option('config_SMTPSecure');
+                $phpmailer->From       = get_option('config_from');
+                $phpmailer->FromName   = get_option('config_fromName');
+            }
         });
     }
 }

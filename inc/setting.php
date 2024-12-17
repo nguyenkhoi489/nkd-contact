@@ -173,15 +173,7 @@
                                     <input type="checkbox" name="config_setting_post_product_count_view_enable" <?= get_option('config_setting_post_product_count_view_enable') == "on" ? "checked" : "" ?> id="">
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">
-                                    ShortCode Product/Post Count Views [Guilde]
-                                </th>
-                                <td>
-                                    <p> - <strong style="color:red">getPostViews(get_the_ID())</strong> => Get Posts/Product Views</p>
-                                    <p> - <strong style="color:red">setPostViews(get_the_ID())</strong> => Set Post/Product Views </p>
-                                </td>
-                            </tr>
+                
                             <tr>
                                 <th scope="row">
                                     Enable/Disable Classic Editor

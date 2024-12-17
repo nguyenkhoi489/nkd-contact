@@ -4,7 +4,7 @@
  * Plugin Name: NKD Extra Feature
  * Plugin URI: /plugin/nkd-contact
  * Update URI: 
- * Description:  Button contact call, zalo, whatsapp, messenger, popup form ...
+ * Description: Extra feature for flatsome themes
  * Version: 1.0
  * Requires at least: 5.5
  * Requires PHP: 7.4
@@ -25,7 +25,6 @@ define('Plugin_ITEM_NAME', 'Contact Button');
 
 require_once Plugin_Path . 'inc/helper.php';
 require_once Plugin_Path . 'inc/ajax.php';
-require_once Plugin_Path . 'inc/count.php';
 
 // add link setting
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
@@ -176,7 +175,18 @@ function loaded_action()
     add_action('admin_enqueue_scripts', 'encript_administrator');
 
     if (get_option('config_setting_post_product_count_view_enable') == 'on') {
-
+        function set_post_views_on_page_load() {
+            if (is_single() && !is_product() ) { 
+                setPostViews(get_the_ID()); 
+            }
+            if (class_exists('WooCommerce') && is_product())
+            {
+                setPostViews(get_the_ID()); 
+            }
+        }
+        add_action('wp', 'set_post_views_on_page_load');
+        
+        require_once Plugin_Path . 'inc/count.php';
         add_filter('manage_posts_columns', 'posts_column_views');
         add_action('manage_posts_custom_column', 'posts_custom_column_views', 5, 2);
 

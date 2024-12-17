@@ -25,6 +25,7 @@ define('Plugin_ITEM_NAME', 'Contact Button');
 
 require_once Plugin_Path . 'inc/helper.php';
 require_once Plugin_Path . 'inc/ajax.php';
+require_once Plugin_Path . 'inc/count.php';
 
 // add link setting
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
@@ -86,9 +87,25 @@ if (!function_exists('nkd_register_setting')) {
         register_setting('nkd_settings_options_group', 'config_setting_postion');
         register_setting('nkd_settings_options_group', 'config_setting_center');
         register_setting('nkd_settings_options_group', 'config_setting_list');
+        register_setting('nkd_settings_options_group', 'config_setting_post_product_count_view_enable');
 
+        register_setting('nkd_settings_options_group', 'config_setting_classic_editor_enable');
+        register_setting('nkd_settings_options_group', 'config_setting_smtp_enable');
         register_setting('nkd_settings_options_group', 'config_setting_transition_enable');
         register_setting('nkd_settings_options_group', 'config_setting_group_icon_mobile_enable');
+
+
+        // SMTP
+        register_setting('add_mailer_group', 'config_mailer', 'mailer_callback');
+        register_setting('add_mailer_group', 'confg_emalNhan', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_host', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_port', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_SMTPAuth', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_userName', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_passWord', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_SMTPSecure', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_from', 'mailer_callback');
+        register_setting('add_mailer_group', 'config_fromName', 'mailer_callback');
     }
 }
 add_action('admin_init', 'nkd_register_setting');
@@ -114,6 +131,16 @@ function nkd_create_menu()
         'nkd-contact-form',
         'nkd_form_page'
     );
+    if (get_option('config_setting_smtp_enable') == 'on') {
+        add_submenu_page(
+            'nkd-contact',
+            'SMTP Config',
+            'SMTP Config',
+            'administrator',
+            'nkd-contact-smtp',
+            'nkd_smtp_page'
+        );
+    }
     add_submenu_page(
         'nkd-contact',
         'Setting Contact',
@@ -138,10 +165,50 @@ function nkd_setting_page()
 {
     require_once Plugin_Path . "inc/setting.php";
 }
+function nkd_smtp_page()
+{
+    require_once Plugin_Path . "inc/smtp.php";
+}
 function loaded_action()
 {
     add_action('wp_footer', 'register_style_show');
     add_action('admin_enqueue_scripts', 'encript_administrator');
+
+    if (get_option('config_setting_post_product_count_view_enable') == 'on') {
+
+        add_filter('manage_posts_columns', 'posts_column_views');
+        add_action('manage_posts_custom_column', 'posts_custom_column_views', 5, 2);
+        function posts_column_views($defaults)
+        {
+            $defaults['views_lastest'] = __('Views', '');
+            return $defaults;
+        }
+        function posts_custom_column_views($column_name, $id)
+        {
+            if ($column_name === 'views_lastest') {
+                echo getPostViews(get_the_ID(), false);
+            }
+        }
+    }
+    if (get_option('config_setting_classic_editor_enable') == 'on') {
+        add_filter('use_block_editor_for_post', '__return_false');
+    }
+    if (get_option('config_setting_smtp_enable') == 'on') {
+        add_action('phpmailer_init', function ($phpmailer) {
+
+            if (!is_object($phpmailer))
+                $phpmailer = (object) $phpmailer;
+            $phpmailer->Mailer     = get_option('config_mailer');
+            $phpmailer->Host       = get_option('config_host');
+            $phpmailer->Port       = get_option('config_port');
+            $phpmailer->SMTPAuth   = get_option('config_SMTPAuth');
+            $phpmailer->Username   = get_option('config_userName'); //username 
+            $phpmailer->Password   = get_option('config_passWord'); //pass
+            $phpmailer->SMTPSecure = get_option('config_SMTPSecure');
+            $phpmailer->From       = get_option('config_from');
+            $phpmailer->FromName   = get_option('config_fromName');
+        });
+    }
 }
 add_action('plugins_loaded', 'loaded_action');
 
@@ -171,7 +238,7 @@ function encript_administrator()
         wp_enqueue_style('nkd-contact-select2', Plugin_URI . 'assets/css/select2.min.css', array(), null);
         wp_enqueue_script('nkd-contact-select2',  Plugin_URI . 'assets/js/select2.full.min.js', array(), null, false);
     }
-    if (isset($_GET['page']) && ($_GET['page'] == 'nkd-contact-setting' || $_GET['page'] == 'nkd-contact' || $_GET['page'] == 'nkd-contact-form')) {
+    if (isset($_GET['page']) && ($_GET['page'] == 'nkd-contact-setting' || $_GET['page'] == 'nkd-contact' || $_GET['page'] == 'nkd-contact-smtp' || $_GET['page'] == 'nkd-contact-form')) {
         wp_enqueue_script('nkd-contact-main',  Plugin_URI . 'assets/js/main.js', array(), null, false);
         wp_enqueue_style('nkd-contact', Plugin_URI . 'assets/css/main.css', array(), null);
         wp_localize_script('ajax_custom_script', 'ajaxurl', array('ajaxurl' => admin_url('admin-ajax.php')));

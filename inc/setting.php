@@ -66,7 +66,7 @@
                         <?php settings_fields('nkd_settings_options_group'); ?>
 
                         <table class="form-table">
-                        <tr>
+                            <tr>
                                 <th scope="row">
                                     Enable/Disable Plugin Contact
                                 </th>
@@ -74,6 +74,7 @@
                                     <input type="checkbox" name="config_setting_enable" <?= get_option('config_setting_enable') == "on" ? "checked" : "" ?> id="">
                                 </td>
                             </tr>
+
                             <tr>
                                 <th scope="row">
                                     Enable/Disable - Transition Icon
@@ -90,7 +91,7 @@
                                     <input type="checkbox" name="config_setting_group_icon_mobile_enable" <?= get_option('config_setting_group_icon_mobile_enable') == "on" ? "checked" : "" ?> id="">
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <th scope="row">
                                     Enable/Disable Form
@@ -152,6 +153,44 @@
                                     </select>
                                 </td>
                             </tr>
+                            <tr>
+                                <th><hr></th>
+                                <td><hr></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    Enable/Disable Post/Product Count Views
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="config_setting_post_product_count_view_enable" <?= get_option('config_setting_post_product_count_view_enable') == "on" ? "checked" : "" ?> id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    ShortCode Product/Post Count Views [Guilde]
+                                </th>
+                                <td>
+                                    <p> - <strong style="color:red">getPostViews(get_the_ID())</strong> => Get Posts/Product Views</p>
+                                    <p> - <strong style="color:red">setPostViews(get_the_ID())</strong> => Set Post/Product Views </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    Enable/Disable Classic Editor
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="config_setting_classic_editor_enable" <?= get_option('config_setting_classic_editor_enable') == "on" ? "checked" : "" ?> id="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    Enable/Disable SMTP Config
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="config_setting_smtp_enable" <?= get_option('config_setting_smtp_enable') == "on" ? "checked" : "" ?> id="">
+                                </td>
+                            </tr>
+                            
                         </table>
                         <hr>
                         <?php submit_button(); ?>

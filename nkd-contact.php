@@ -116,8 +116,8 @@ add_action('admin_init', 'nkd_register_setting');
 function nkd_create_menu()
 {
     add_menu_page(
-        'NKD Extra Feature',
-        'Button contact',
+        'Extra Feature',
+        'Extra Feature',
         'administrator',
         'nkd-contact',
         'nkd_contact_page',

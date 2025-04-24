@@ -9,7 +9,7 @@
  * Requires at least: 5.5
  * Requires PHP: 7.4
  * Author: Thái Nguyên Khôi
- * Author URI: https://www.facebook.com/nguyenkhoi489/
+ * Author URI: https://nguyenkhoi.dev/
  * License: GPL
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: nkd-contact
